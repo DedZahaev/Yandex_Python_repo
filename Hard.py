@@ -1,14 +1,17 @@
-L = int(input())
-N = int(input())
-a = []
-for i in range(N):
-    a.append(input())  
-for item in a:
-    lenth = len(item)
-    if lenth > L:
-        print(item[:L - 3] + "...")
+c = []
+count = 0
+while True:
+    a = input()
+    if a == "":
+        break
+    if a.find("##") != -1 and a.endswith("@@@") is not True:
+        c.append(a.lstrip("##"))
+    elif a.endswith("@@@") is True:
+        c = c
     else:
-        print(item)
-    
+        c.append(a) 
+for letter in (c):
+    print(letter)
 
- 
+
+
