@@ -1,17 +1,20 @@
-c = []
-count = 0
-while True:
-    a = input()
-    if a == "":
-        break
-    if a.find("##") != -1 and a.endswith("@@@") is not True:
-        c.append(a.lstrip("##"))
-    elif a.endswith("@@@") is True:
-        c = c
+N = input()
+a = []
+b = []
+lenth = len(N) 
+for i in range(0, lenth):
+    if i < lenth // 2:
+        a.append(N[i])
+    elif lenth % 2 != 0 and i == lenth // 2:
+        a.append(N[i])
+        b.append(N[i])
     else:
-        c.append(a) 
-for letter in (c):
-    print(letter)
+        b.append(N[i])
 
+b = b[::-1]
+if a == b:
+    print("YES")
+else:
+    print("NO")
 
 
