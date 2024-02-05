@@ -1,20 +1,11 @@
-N = input()
-a = []
-b = []
-lenth = len(N) 
-for i in range(0, lenth):
-    if i < lenth // 2:
-        a.append(N[i])
-    elif lenth % 2 != 0 and i == lenth // 2:
-        a.append(N[i])
-        b.append(N[i])
-    else:
-        b.append(N[i])
+N = int(input())
+count = 0
 
-b = b[::-1]
-if a == b:
-    print("YES")
-else:
-    print("NO")
-
-
+for i in range(N):
+    a = input()
+    a = a.split()
+    for i in range(len(a)):
+        if a[i] == "зайка":
+            count += 1
+print(count)
+    
