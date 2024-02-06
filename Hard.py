@@ -1,25 +1,25 @@
-N = int(input())
-list_bunny = []
-
-for i in range(N):
-    a = input()
-    b = a.find("зайка")
-    if b != -1:
-        list_bunny.append(b + 1)
+full_list = []
+while True:
+    text = input()
+    comm = text.find("#")
+    if comm != -1:
+        full_list.append(text[:comm])
     else:
-        list_bunny.append("Заек нет =(")
+        full_list.append(text)
+    if text == "":
+        break
 
-for i in range(len(list_bunny)):
-    print(list_bunny[i])
-
+for i in range(len(full_list)):
+    if full_list[i] == "":
+        continue
+    else:
+        print(full_list[i])
 '''
 Формат ввода
-В первой строке записано натуральное число 
-N — количество выделенных придорожных местностей.
-В каждой из 
-N последующих строк записано описание придорожной местности.
+Вводятся строки программы.
+Признаком остановки является пустая строка.
 
 Формат вывода
-Для каждой строки нужно найти положение первого зайки.
-Если в строке нет заек, то об этом нужно непременно сообщить.
+Каждую строку нужно очистить от комментариев.
+А если комментарий — вся строка, то выводить её не надо.
 '''
