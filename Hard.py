@@ -1,34 +1,30 @@
-text2 = ""
-letter_max = 0
-count = ""
-while True:
-    text = input()
-    text2 += text
-    
-    if text == "ФИНИШ":
-        break
-text2 = text2.lower().replace(' ', '')
+N = int(input())
+letters = []
+letters2 = []
+for i in range(N):
+    a = input()
+    letters.append(a)
 
-for i, char in enumerate(text2):
-    count = text2[i]
-    letters = text2.count(char)
+b = input()
 
-    if letters > letter_max:
-        letter_max = letters
-        s = char
-    elif letters == letter_max:
-        if char < s:
-            s = char
-        
-print(s)
+for i in range(len(letters)):  
+    if letters[i].lower().count(b.lower()) != 0:
+        letters2.append(letters[i])
+
+for i in range(len(letters2)):
+    print(letters2[i])
+
 '''
 Формат ввода
-Вводятся строки, пока не будет введена строка «ФИНИШ».
+Вводится натуральное число 
+�
+N — количество страниц, среди которых требуется произвести поиск.
+В каждой из последующих 
+�
+N строк записаны заголовки страниц.
+В последней строке записан поисковый запрос.
 
 Формат вывода
-Выводится один символ в нижнем регистре — наиболее часто встречающийся.
-
-Примечания
-Пробелы в анализе не участвуют.
-Если в результате анализа получено несколько ответов, следует вывести первый по алфавиту
+Вывести все заголовки страниц, в которых присутствует поисковый запрос (регистр не имеет значения).
+Порядок заголовков должен сохраниться.
 '''
