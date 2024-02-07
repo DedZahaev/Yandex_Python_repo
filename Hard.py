@@ -1,25 +1,34 @@
-full_list = []
+text2 = ""
+letter_max = 0
+count = ""
 while True:
     text = input()
-    comm = text.find("#")
-    if comm != -1:
-        full_list.append(text[:comm])
-    else:
-        full_list.append(text)
-    if text == "":
+    text2 += text
+    
+    if text == "ФИНИШ":
         break
+text2 = text2.lower().replace(' ', '')
 
-for i in range(len(full_list)):
-    if full_list[i] == "":
-        continue
-    else:
-        print(full_list[i])
+for i, char in enumerate(text2):
+    count = text2[i]
+    letters = text2.count(char)
+
+    if letters > letter_max:
+        letter_max = letters
+        s = char
+    elif letters == letter_max:
+        if char < s:
+            s = char
+        
+print(s)
 '''
 Формат ввода
-Вводятся строки программы.
-Признаком остановки является пустая строка.
+Вводятся строки, пока не будет введена строка «ФИНИШ».
 
 Формат вывода
-Каждую строку нужно очистить от комментариев.
-А если комментарий — вся строка, то выводить её не надо.
+Выводится один символ в нижнем регистре — наиболее часто встречающийся.
+
+Примечания
+Пробелы в анализе не участвуют.
+Если в результате анализа получено несколько ответов, следует вывести первый по алфавиту
 '''
